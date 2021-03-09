@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pagination</title>
     <style>
         * {
             margin: 0;
@@ -25,7 +25,6 @@
         }
 
         ul li {
-            padding: 8px 12px;
             border-top: 1px solid #dadadb;
             border-left: 1px solid #dadadb;
             border-bottom: 1px solid #dadadb;
@@ -33,6 +32,8 @@
         }
 
         ul li a {
+            display: inline-block;
+            padding: 8px 12px;
             color: #0c6efd;
             font-size: 20px;
             text-decoration: none;
@@ -53,6 +54,11 @@
             cursor: pointer;
             background-color: #eee;
         }
+        .active {
+            transition-duration: .2s;
+            background-color: #0D6EFD;
+            color: white;
+        }
     </style>
 </head>
 
@@ -68,10 +74,20 @@
     </div>
     <script>
         const pagination = document.getElementById("pagination");
+        let pageItem = document.getElementsByClassName("page-item");
         pagination.addEventListener("click", (e) => {
-            e.stopPropagation();
-            console.log(e)
-        }, true)
+            for (let i = 0; i < pageItem.length; i++) {
+                if (pageItem[i].lastChild.className.indexOf("active") >= 0) {
+                    pageItem[i].lastChild.classList.remove("active");
+                    break;
+                }
+            }
+            if (e.target.innerText === "«" || e.target.innerText === "»") {
+                return;
+            } else {
+                return e.target.classList.add("active");
+            }
+        });
     </script>
 </body>
 
