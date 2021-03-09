@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        .pagination-block {
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        ul li {
+            padding: 8px 12px;
+            border-top: 1px solid #dadadb;
+            border-left: 1px solid #dadadb;
+            border-bottom: 1px solid #dadadb;
+            transition-duration: .2s;
+        }
+
+        ul li a {
+            color: #0c6efd;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        ul li:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        ul li:last-child {
+            border-right: 1px solid #dadadb;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        ul li:hover {
+            cursor: pointer;
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pagination-block">
+        <ul id="pagination">
+            <li class="page-item"><a href="#">&laquo;</a></li>
+            <li class="page-item"><a href="#">1</a></li>
+            <li class="page-item"><a href="#">2</a></li>
+            <li class="page-item"><a href="#">3</a></li>
+            <li class="page-item"><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+    <script>
+        const pagination = document.getElementById("pagination");
+        pagination.addEventListener("click", (e) => {
+            e.stopPropagation();
+            console.log(e)
+        }, true)
+    </script>
+</body>
+
+</html>
