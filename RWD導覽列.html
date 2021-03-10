@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .navigation {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #999;
+        }
+        .navigation-list {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            transition-duration: .2s;
+        }
+        .navigation-list a, .menu {
+            display: inline-block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            transition-duration: .3s;
+        }
+        .navigation-list a:hover, .menu:hover {
+            background-color: #fff;
+            color: black;
+        }
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+        @media screen and (max-width: 768px) {
+            .menu {
+                opacity: 1;
+                visibility: visible;
+            }
+            .navigation {
+                display: block;
+            }
+            .navigation-list {
+                opacity: 0;
+                visibility: hidden;
+            }
+            .navigation-list a {
+                display: block;
+            }
+            .navigation-list li {
+                text-align: center;
+            }
+            .navigation-list-mobile {
+                padding-top: 50px;
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <ul class="navigation-list" id="navigation-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">LOGIN</a></li>
+        </ul>
+        <a class="menu" href="#" onclick="openMenu()">Menu</a>
+    </nav>
+    <script>
+        const navigationList = document.getElementById("navigation-list");
+        let menuIsOpen = false;
+        function openMenu() {
+            menuIsOpen = !menuIsOpen;
+            return menuIsOpen ? navigationList.classList.add("navigation-list-mobile") : navigationList.classList.remove("navigation-list-mobile");
+        }
+    </script>
+</body>
+</html>
